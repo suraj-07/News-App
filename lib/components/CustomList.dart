@@ -13,9 +13,9 @@ Widget customList(Article article, BuildContext context){
     },
     child: SingleChildScrollView (
       child: Container(
-        margin: EdgeInsets.all(16),
+        margin: EdgeInsets.only(left: 16,right: 16,top: 24,bottom: 24),
 
-       //padding: EdgeInsets.all(12),
+
         decoration: BoxDecoration(
 
           color: Colors.white,
@@ -25,57 +25,73 @@ Widget customList(Article article, BuildContext context){
              color: Colors.black12,
              blurRadius: 3.0,
             )
-          ]),
+          ],
+
+
+
+        ),
+
         child: Column(
 
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
+
             padding: EdgeInsets.all(12),
               height: 250 ,
               width: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(article.urlToImage),
-                  fit: BoxFit.cover
+                  fit: BoxFit.fill
+
                 ),
                     borderRadius: BorderRadius.circular(10.0),
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.center,
+                      colors: [
+                        Colors.black,
+                        Colors.black.withOpacity(0.3),
+                      ]
+                  )
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
 
-                  // SizedBox(height: 8.0,),
-                  // Container(
-                  //   decoration: BoxDecoration(
-                  //     color: Colors .red,
-                  //     borderRadius: BorderRadius.circular(30.0),
-                  //   ),
-                  //   child: Text(article.source.name),
-                  // ),
 
                   SizedBox(height: 8.0,),
-                  Text(article.title, style: TextStyle(fontWeight: FontWeight.bold,
+                  Text(article.title, style: TextStyle(fontFamily: 'RobotoSlab', fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.white
                   ),),
                   SizedBox(height: 8.0,),
-                  Container(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(article.source.name,style: TextStyle(fontSize: 12 , color: Color.fromARGB(242, 242, 242, 242)),),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 24),
+                    child: Container(
+                      alignment: Alignment.bottomLeft,
+                      child: Text(article.source.name,style: TextStyle(fontFamily: 'RobotoSlab',fontSize: 12 , color: Color(0xfff2f2f2), fontWeight: FontWeight.w700),),
+
+                    ),
                   ),
+
                 ],
+
               ),
+
             ),
 
-            // SizedBox(height: 8.0,),
-            // Text(article.title, style: TextStyle(fontWeight: FontWeight.bold,
-            //   fontSize: 20,
-            // ),)
+
+
           ],
+
         ),
+
       ),
+
+
     ),
   );
 }

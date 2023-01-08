@@ -12,12 +12,13 @@ class ArticlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true ,
       appBar : AppBar(
-        title: Text(article.title) ,
+        backgroundColor: Colors.transparent,
       ),
       body: Padding(
 
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(0.0),
         child: Column(
 
           children: [
@@ -44,17 +45,25 @@ class ArticlePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 8.0,),
-                    Text(article.title, style: TextStyle(fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Color(0xfff2f2f2)
-                    ),),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24,right: 24,bottom: 64),
+                      child: Text(article.title, style: TextStyle(fontWeight: FontWeight.w700,
+                          fontSize: 29,
+                          color: Color(0xfff2f2f2)
+                      ),
+                      ),
+                    ),
+
                     SizedBox(height: 8.0,),
 
-                    Text(article.source.name,style: TextStyle(
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: Text(article.source.name,style: TextStyle(
 
-                        fontSize: 20,
-                        color: Color(0xfff2f2f2)
-                    ),),
+                          fontSize: 20,
+                          color: Color(0xfff2f2f2)
+                      ),),
+                    ),
                     SizedBox(height: 8.0,),
                     Text(article.description, style: TextStyle(
                         fontSize: 14,
@@ -70,5 +79,4 @@ class ArticlePage extends StatelessWidget {
     );
   }
 }
-
 

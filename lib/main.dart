@@ -40,9 +40,10 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
        appBar : AppBar(
          centerTitle: true,
-         title: Text("Headlines",style: TextStyle(color: Colors.white, fontSize :29) ),
+         title: Text("HEADLINES",style: TextStyle(fontFamily: 'RobotoSlab', color: Color(0xffffffff), fontSize :29,fontWeight: FontWeight.w700) ),
          backgroundColor: Colors.black,
        ),
+      backgroundColor: Color(0xff464646),
 
       body: FutureBuilder(
         future: client.getArticle(),
