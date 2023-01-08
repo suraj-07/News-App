@@ -22,35 +22,46 @@ class ArticlePage extends StatelessWidget {
 
           children: [
 
-            Container(
-              padding: EdgeInsets.all(12),
-              // height: h,
-              // width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.9, //height to 10% of screen height, 100/10 = 0.1
-              width: MediaQuery.of(context).size.width *0.9,
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(12),
+                // height: h,
+                // width: double.infinity,
+                height: MediaQuery.of(context).size.height , //height to 10% of screen height, 100/10 = 0.1
+                width: MediaQuery.of(context).size.width ,
 
 
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(article.urlToImage),
-                    fit: BoxFit.cover
-                ),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  SizedBox(height: 8.0,),
-                  Text(article.title, style: TextStyle(fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.white
-                  ),),
-                  SizedBox(height: 8.0,),
-                  Container(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(article.source.name,style: TextStyle(fontSize: 12 , color: Color.fromARGB(242, 242, 242, 242)),),
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(article.urlToImage),
+                      fit: BoxFit.cover
                   ),
-                ],
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 8.0,),
+                    Text(article.title, style: TextStyle(fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Color(0xfff2f2f2)
+                    ),),
+                    SizedBox(height: 8.0,),
+
+                    Text(article.source.name,style: TextStyle(
+
+                        fontSize: 20,
+                        color: Color(0xfff2f2f2)
+                    ),),
+                    SizedBox(height: 8.0,),
+                    Text(article.description, style: TextStyle(
+                        fontSize: 14,
+                        color: Color(0xFFbababa)
+                    ),),
+                  ],
+                ),
               ),
             ),
           ],

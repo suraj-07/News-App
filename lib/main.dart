@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
 
       home: Homepage(),
     );
@@ -38,6 +39,7 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
        appBar : AppBar(
+         centerTitle: true,
          title: Text("Headlines",style: TextStyle(color: Colors.white, fontSize :29) ),
          backgroundColor: Colors.black,
        ),
